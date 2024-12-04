@@ -1,0 +1,43 @@
+print ("Bienvenido al sistema de nóminas de la empresa")
+class Empleado:
+    def __init__(self, nombre, salario_base):
+        self.nombre = nombre
+        self.salario_base = salario_base
+
+    def calcular_salario(self):
+        return self.salario_base
+
+
+
+class Programador(Empleado):
+    def __init__(self, nombre, salario_base, lenguaje_de_programacion):
+        super().__init__(nombre, salario_base)
+        self.lenguaje_de_programacion = lenguaje_de_programacion
+
+    def calcular_salario(self):
+        return self.salario_base * 1.1
+
+
+
+class SistemaNominas:
+    def calcular_nominas(self, empleados):
+        print('Calculando nóminas...')
+        print('====================')
+        for empleado in empleados:
+            print(f'Empleado: {empleado.nombre}')
+            if isinstance(empleado, Programador):
+                print(f'Lenguaje de programación: {empleado.lenguaje_de_programacion}')
+            print(f'Salario calculado: ${empleado.calcular_salario():.2f}')
+            print('')
+
+
+
+empleados = [
+    Programador("Jon", 5000, "Python"),
+    Programador("Maria", 6000, "Java"),
+    Empleado("Leo", 4000)  
+]
+
+
+nominas = SistemaNominas()
+nominas.calcular_nominas(empleados)
