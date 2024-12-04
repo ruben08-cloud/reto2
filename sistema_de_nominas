@@ -1,3 +1,5 @@
+#El objetivo de este sistema es calcular el salario de cada empleado.
+
 print ("Bienvenido al sistema de nóminas de la empresa")
 class Empleado:
     def __init__(self, nombre, salario_base):
